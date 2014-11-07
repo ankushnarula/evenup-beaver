@@ -21,6 +21,8 @@ class beaver::params {
   $redis_db               = 0
   $redis_port             = 6379
   $redis_namespace        = 'logstash:beaver'
+  $tcp_host               = 'localhost'
+  $tcp_port               = 3333  
   $logstash_version       = 0
   $enable_sincedb         = true
   $sincedb_path           = '/tmp/beaver_since.db'

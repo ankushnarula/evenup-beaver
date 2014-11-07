@@ -1,4 +1,11 @@
 [<%= scope.lookupvar('source_real') %>]
+
+<% if scope.lookupvar('tcp_host') != '' -%>
+tcp_host: <%= scope.lookupvar('tcp_host') %>
+<% end -%>
+<% if scope.lookupvar('tcp_port') != '' -%>
+tcp_port: <%= scope.lookupvar('tcp_port') %>
+<% end -%>
 <% if scope.lookupvar('redis_url') != '' -%>
 redis_url: <%= scope.lookupvar('redis_url') %>
 <% end -%>

@@ -45,6 +45,8 @@ define beaver::stanza (
   $tags                   = [],
   $redis_url              = '',
   $redis_namespace        = '',
+  $tcp_host               = '',
+  $tcp_port               = 3333,
   $format                 = '',
   $sincedb_write_interval = 300,
 ){

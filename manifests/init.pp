@@ -79,6 +79,8 @@ class beaver (
   $redis_db               = $beaver::params::redis_db,
   $redis_port             = $beaver::params::redis_port,
   $redis_namespace        = $beaver::params::redis_namespace,
+  $tcp_host               = $beaver::params::tcp_host,
+  $tcp_port               = $beaver::params::tcp_port,
   $logstash_version       = $beaver::params::logstash_version,
   $enable_sincedb         = $beaver::params::enable_sincedb,
   $sincedb_path           = $beaver::params::sincedb_path,

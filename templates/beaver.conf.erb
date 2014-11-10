@@ -2,10 +2,10 @@
 [beaver]
 logstash_version: <%= scope.lookupvar('beaver::logstash_version') %>
 
-tcp_host = <%= scope.lookupvar('beaver::tcp_host') %>
-tcp_port = <%= scope.lookupvar('beaver::tcp_port') %>
+tcp_host: <%= scope.lookupvar('beaver::tcp_host') %>
+tcp_port: <%= scope.lookupvar('beaver::tcp_port') %>
 
-redis_url = redis://<%= scope.lookupvar('beaver::redis_host') %>:<%= scope.lookupvar('beaver::redis_port') %>/<%= scope.lookupvar('beaver::redis_db') %>
+redis_url: redis://<%= scope.lookupvar('beaver::redis_host') %>:<%= scope.lookupvar('beaver::redis_port') %>/<%= scope.lookupvar('beaver::redis_db') %>
 redis_namespace: <%= scope.lookupvar('beaver::redis_namespace') %>
 
 <% if scope.lookupvar('beaver::enable_sincedb') -%>

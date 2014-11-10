@@ -37,6 +37,14 @@
 #   String.  Default namespace beaver should write logs to
 #   Default:  logstash::beaver
 #
+# [*tcp_host*]
+#   String.  Default tcp to send logs to
+#   Default: localhost
+#
+# [*tcp_port*]
+#   Integer.  Default port to use for the tcp connection
+#   Default: 3333
+#
 # [*logstash_version*]
 #   Integer.  Pre-1.2 (0) or 1.2+ logstash (1)?
 #   Default: 0
@@ -91,10 +99,12 @@ class beaver (
   validate_bool($enable, $enable_sincedb)
   if type($redis_db) != 'integer' { fail('redis_db is not an integer') }
   if type($redis_port) != 'integer' { fail('redis_port is not an integer') }
+  if type($tcp_port) != 'integer' { fail('tcp_port is an integer') }
   if $logstash_version > 1 {
     fail("logstash_version must be 0 or 1, got ${logstash_version}")
   }
   validate_string($redis_host, $redis_namespace)
+  validate_string($tcp_host)
 
   class { 'beaver::package': } ->
   class { 'beaver::config': } ~>

@@ -17,9 +17,6 @@
 #
 # Copyright 2013 EvenUp.
 #
-<<<<<<< .merge_file_F7OLVr
-class beaver::package {
-=======
 class beaver::package (
   $venv           = $beaver::venv,
   $package_name   = $beaver::package_name,
@@ -30,18 +27,11 @@ class beaver::package (
   $group          = $beaver::group,
   $home           = $beaver::home,
 ) {
->>>>>>> .merge_file_LCKmN3
 
   if $caller_module_name != $module_name {
     fail("Use of private class ${name} by ${caller_module_name}")
   }
 
-<<<<<<< .merge_file_F7OLVr
-  package { $beaver::package_name:
-    ensure    => $beaver::version,
-    provider  => $beaver::package_provider,
-    notify    => Class['beaver::service'],
-=======
   # Setup some variables for the virtualenv
   $venv_environment = [
     "PATH=${venv}/bin:\$PATH",
@@ -79,7 +69,6 @@ class beaver::package (
       provider => $provider,
       notify   => Class['beaver::service'],
     }
->>>>>>> .merge_file_LCKmN3
   }
 
   file { '/etc/init.d/beaver':
@@ -87,16 +76,6 @@ class beaver::package (
     mode    => '0555',
     owner   => 'root',
     group   => 'root',
-<<<<<<< .merge_file_F7OLVr
-    source  => 'puppet:///modules/beaver/beaver.init',
-  }
-
-  file { '/etc/beaver':
-    ensure  => 'directory',
-    mode    => '0555',
-    owner   => 'root',
-    group   => 'root',
-=======
     content => template('beaver/beaver.init.erb'),
   }
 
@@ -105,7 +84,6 @@ class beaver::package (
     mode   => '0555',
     owner  => 'root',
     group  => 'root',
->>>>>>> .merge_file_LCKmN3
   }
 
   file { '/etc/beaver/conf.d':
